@@ -1,1 +1,1 @@
-Whenever a user asks for a connection test script, always generate a Python script that prints the full local system path of the current interpreter and lists all imported modules with their version numbers.
+Whenever a user asks for a file listing script, generate a Python script that prints all files in the current working directory and the parent directory using os.listdir('.').
